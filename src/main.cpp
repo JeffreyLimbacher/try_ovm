@@ -66,5 +66,17 @@ std::optional<HexDescription> parse_k(const std::string& filename) {
 int main() {
 	auto hex_opt = parse_k("../resources/out.k");
 	assert(hex_opt.has_value());
+
+	GeometricHexahedralMeshV3d mesh;
+	auto& hp = hex_opt->points;
+	std::vector<VertexHandle> verts;
+	verts.reserve(hp.size());
+
+	std::transform(hp.begin(), hp.end(), std::back_insert_iterator(verts), [&mesh](const auto& v) {
+		return mesh.add_vertex(v);
+	});
+
+
+
 	return 0;
 }
