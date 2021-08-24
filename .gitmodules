@@ -1,0 +1,3 @@
+[submodule "OpenVolumeMesh"]
+	path = OpenVolumeMesh
+	url = https://www.graphics.rwth-aachen.de:9000/OpenVolumeMesh/OpenVolumeMesh.git
